@@ -19,18 +19,18 @@
             </tr>
           </thead>
           <tbody>
+            {% for student in performances %}
             <tr>
-              <th scope="row">Jack</th>
-              <td>✅</td>
-              <td>✅</td>
-              <td>❌</td>
+              <th scope="row">{{student.student_name}}</th>
+              {% for key, value in student.items %}
+              {% if not forloop.first %} 
+              <td>
+                    {% if value %} ✅  {% else %} ❌ {% endif %}
+               </td>
+               {% endif %}
+              {% endfor %}
             </tr>
-            <tr>
-              <th scope="row">Jill</th>
-              <td>❌</td>
-              <td>❌</td>
-              <td>✅</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </article>
